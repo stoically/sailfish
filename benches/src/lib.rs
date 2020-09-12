@@ -4,6 +4,7 @@ pub mod askama_bench;
 pub mod fomat;
 pub mod handlebars;
 pub mod horrorshow_bench;
+pub mod html_to_string;
 pub mod liquid;
 pub mod markup_bench;
 pub mod maud_bench;

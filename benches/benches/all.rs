@@ -1,6 +1,7 @@
 use benches::{
-    askama_bench, fomat, handlebars, horrorshow_bench, liquid, markup_bench, maud_bench,
-    ramhorns, ructe, sailfish, std_write, tera, yarte_bench, yarte_bytes, yarte_fixed,
+    askama_bench, fomat, handlebars, horrorshow_bench, html_to_string, liquid,
+    markup_bench, maud_bench, ramhorns, ructe, sailfish, std_write, tera, yarte_bench,
+    yarte_bytes, yarte_fixed,
 };
 use criterion::{criterion_group, criterion_main, Criterion};
 
@@ -10,6 +11,7 @@ fn big_table(c: &mut Criterion) {
     g.bench_function("fomat", |b| fomat::big_table(b, &100));
     g.bench_function("Handlebars", |b| handlebars::big_table(b, &100));
     g.bench_function("Horrorshow", |b| horrorshow_bench::big_table(b, &100));
+    g.bench_function("html_to_string", |b| html_to_string::big_table(b, &100));
     g.bench_function("Liquid", |b| liquid::big_table(b, &100));
     g.bench_function("Markup", |b| markup_bench::big_table(b, &100));
     g.bench_function("Maud", |b| maud_bench::big_table(b, &100));
@@ -30,6 +32,7 @@ fn teams(c: &mut Criterion) {
     g.bench_function("fomat", |b| fomat::teams(b, &0));
     g.bench_function("Handlebars", |b| handlebars::teams(b, &0));
     g.bench_function("Horrorshow", |b| horrorshow_bench::teams(b, &0));
+    g.bench_function("html_to_string", |b| html_to_string::teams(b));
     g.bench_function("Liquid", |b| liquid::teams(b, &0));
     g.bench_function("Markup", |b| markup_bench::teams(b, &0));
     g.bench_function("Maud", |b| maud_bench::teams(b, &0));
